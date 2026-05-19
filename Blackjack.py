@@ -145,7 +145,7 @@ class ChaosDisaster:
 
     def roll_disaster(self):
         new_disaster = random.choice(self.disasters)
-        self.active_disaster[self.disaster_idx % 8] = new_disaster
+        self.active_disaster[self.disaster_idx % 8] = new_disaster #circular active disaster list!let's go
 
         if new_disaster == "The Floor is Lava":
             if self.active_disaster.count("The Floor is Lava") > 1:
@@ -489,7 +489,6 @@ while run:
         screen.blit(exit_label, (exit_btn_rect.x + 25, exit_btn_rect.y + 12))
 
     elif game_state == "GAME":
-        # Fixed the typo here!
         if initial_deal:
             disaster.roll_disaster()
             profile.setup_action_hand()
